@@ -1,7 +1,7 @@
 import asyncio
-from start_script import TOKEN
 from Commands import Commands
 from event_handler import bot
+from CONSTS import TOKEN
 
 
 async def main():

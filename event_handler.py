@@ -1,5 +1,6 @@
 from discord.ext import commands
 from start_script import intents
+from apps import get_cat
 
 
 bot = commands.Bot(command_prefix='/', intents=intents)
@@ -9,7 +10,6 @@ bot = commands.Bot(command_prefix='/', intents=intents)
 async def on_ready():
     print('Logged in as')
     print(bot.user.name)
-    print(bot.user.id)
     print('------')
 
 
@@ -17,7 +17,7 @@ async def on_ready():
 async def on_message(message):
     if message.author == bot.user:
         return
-    if "привет" in message.content.lower():
-        await message.channel.send("И тебе привет")
+    if "кот" in message.content.lower():
+        await message.channel.send(get_cat())
     else:
-        await message.channel.send("Спасибо за сообщение")
+        await message.channel.send("Хочешь кота")
