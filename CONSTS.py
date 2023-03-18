@@ -1,3 +1,3 @@
 URL = 'https://api.thecatapi.com/v1/images/search'
 
-TOKEN = "MTA4MTU4OTcwMjczOTYyODEwNA.G-PPP1.5ZpVhdf07IiuzwwzQ9p1RGH26o7WtFKHpm5P44"
+TOKEN = "MTA4MTU4OTcwMjczOTYyODEwNA.GLBFOj.D2vpr5lZHKxvRi9Jw1fY4kUwE1RHCgfbWg1E_M"
