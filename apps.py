@@ -8,3 +8,4 @@ def get_cat() -> None:
     # im = Image.open(requests.get(response.json()[0]['url'], stream=True).raw)
     # im.save('image.jpg')
     return response.json()[0]['url']
+
