@@ -9,8 +9,6 @@ from os import rename, getcwd, listdir
 class Parser(object):
 
     def __init__(self):
-        self.names_of_supported_files = None
-        self.supported_vidio_files = None
         self.PATH = getcwd() + r"\chromedriver.exe"
         self.link = r"https://x2download.com"
         self.headers = {
@@ -42,9 +40,14 @@ class Parser(object):
 
         input_link_label = self.driver.find_element(by=By.ID, value="s_input")
         input_link_label.send_keys(vidio_link)
-
-        self.driver.find_element(by=By.ID, value="search-form").find_element(by=By.TAG_NAME, value="button").click()
-        sleep(1)
+        for i in range(3):
+            try:
+                self.driver.find_element(by=By.ID, value="search-form").find_element(by=By.TAG_NAME, value="button").click()
+                break
+            except Exception as ex:
+                print(ex)
+                sleep(2)
+        sleep(2)
         # next
         opt = self.driver.find_element(by=By.ID, value='formatSelect')
         select = Select(opt)
@@ -56,15 +59,21 @@ class Parser(object):
             select.select_by_index(0)
 
         # download vidio
-        self.driver.find_element(by=By.ID, value="btn-action").click()
+        for i in range(3):
+            try:
+                self.driver.find_element(by=By.ID, value="btn-action").click()
+                break
+            except Exception as ex:
+                print(ex)
+                sleep(2)
 
-        while True:
+        for i in range(3):
             try:
                 self.driver.find_element(by=By.ID, value="asuccess").click()
                 break
             except Exception as ex:
                 print(ex)
-                sleep(1)
+                sleep(2)
 
         self.driver.minimize_window()
         self.settings_of_file(new_name=new_vidio_name)
