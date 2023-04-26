@@ -35,6 +35,18 @@ class Commands(commands.Cog):
         await asyncio.sleep(60 * minutes + seconds)
         await ctx.send('Time X has come')
 
+    @commands.command(name='help')
+    async def help(self, ctx):
+        await ctx.send('''
+        $randint min max
+        $set_timer time
+        $ban nickname
+        $result
+        $all_result
+        $test
+        $youtube link mp3(optional)
+        ''')
+
     @commands.command(name='ban')
     @has_permissions(ban_members=True)
     async def ban(self, ctx, member: discord.Member):

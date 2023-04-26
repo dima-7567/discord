@@ -9,6 +9,8 @@ from os import rename, getcwd, listdir
 class Parser(object):
 
     def __init__(self):
+        self.names_of_supported_files = None
+        self.supported_vidio_files = None
         self.PATH = getcwd() + r"\chromedriver.exe"
         self.link = r"https://x2download.com"
         self.headers = {
